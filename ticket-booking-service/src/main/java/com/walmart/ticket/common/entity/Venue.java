@@ -1,4 +1,4 @@
-package com.walmart.ticket.entity;
+package com.walmart.ticket.common.entity;
 
 import java.math.BigDecimal;
 
