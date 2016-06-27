@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} %-5p [%t] [%c{1}] %m%n" />
+        </Console>
+
+        <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="ticket-booking-service.log"
+                                 filePattern="ticket-booking-service-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout pattern="%d{ISO8601} %-5p [%t] [%c{1}] %m%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingRandomAccessFile>
+
+    </Appenders>
+
+    <Loggers>
+        <logger name="com.walmart.ticket" level="debug" />
+        <logger name="org.springframework" level="debug"/>
+
+        <Root level="info">
+            <AppenderRef ref="RollingRandomAccessFile" />
+            <AppenderRef ref="Console" /> <!-- Remove this when deploying application in server -->
+        </Root>
+    </Loggers>
+</Configuration>
