@@ -1,4 +1,4 @@
-package com.walmart.ticket.com.walmart.ticket.common.entity;
+package com.walmart.ticket.entity;
 
 /**
  * Created by Vamshi on 6/27/2016.

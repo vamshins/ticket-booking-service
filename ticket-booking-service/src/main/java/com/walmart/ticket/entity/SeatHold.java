@@ -1,4 +1,4 @@
-package com.walmart.ticket.com.walmart.ticket.common.entity;
+package com.walmart.ticket.entity;
 
 import java.sql.Timestamp;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.walmart.ticket.com.walmart.ticket.config;
+package com.walmart.ticket.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
