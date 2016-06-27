@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * {@link RowMapper} that maps individual {@link ResultSet} to {@link SeatBooking}
  */
-public class SeatRowBookingMapper implements RowMapper<SeatBooking> {
+public class SeatBookingRowMapper implements RowMapper<SeatBooking> {
     @Override
     public SeatBooking mapRow(ResultSet rs, int rowNum) throws SQLException {
         SeatBooking seatBooking = new SeatBooking();
