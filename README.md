@@ -12,12 +12,6 @@ This application is developed using Spring Boot, Spring JDBC, Spring RESTful web
 4. No notification for the expiration of seat holds.
 5. User can hold and reserve the seats at multiple levels by providing the minLevel and maxLevel.
 
-### DB Schema
----
-The application is designed using HSQLDB. For illustration purposes, I have generated the schema design using MySQL Workbench.
-
-![schemaDesign](https://github.com/vamshins/ticket-booking-service/blob/master/img/schemaDesign.JPG)
-
 ### Building Project
 ---
 1.	Clone the project
@@ -150,3 +144,14 @@ mvn test
 
 ![testResults](https://github.com/vamshins/ticket-booking-service/blob/master/img/testResults.JPG)
 
+### DB Schema
+---
+The application is designed using HSQLDB. For illustration purposes, I have generated the schema design using MySQL Workbench.
+
+![schemaDesign](https://github.com/vamshins/ticket-booking-service/blob/master/img/schemaDesign.JPG)
+
+### Sequence Diagram for holding seats
+---
+The following diagram shows the request and response flow of holding the seats.
+
+![sequenceDiagram](https://github.com/vamshins/ticket-booking-service/blob/master/img/sequenceDiagram.JPG)
