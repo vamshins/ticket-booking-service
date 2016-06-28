@@ -2,16 +2,51 @@
 ---
 Implementation of a simple ticket service that facilitates the discovery, temporary hold, and final reservation of seats within a high-demand performance venue.
 
-This application is developed using Spring Boot, Spring JDBC, Spring RESTful web services
+This application is developed using Spring Boot, Spring JDBC, Spring RESTful web services, HSQLDB.
 
 ### Assumptions
 ---
 1. Users are provided seats based on the availability.
 2. No seat numbers.
-3. Hold time for the seats is 60 seconds. If the user doesn't reserve the seats before 60 seconds, then the holds are removed and user has to send a request again to hold the seats.
-4. User can hold and reserve the seats at multiple levels by providing the minLevel and maxLevel.
+3. Hold time for the seats is 60 seconds. If the user doesn't reserve the seats before 60 seconds, then the holds are removed and user has to send a request again to hold the seats. 4. No notification for the expiration of seat holds.
+5. User can hold and reserve the seats at multiple levels by providing the minLevel and maxLevel.
 
+### DB Schema
+---
+The application is designed using HSQLDB. For illustration purposes, I have generated the schema design using MySQL Workbench.
 
+![schemaDesign](https://github.com/vamshins/ticket-booking-service/blob/master/img/schemaDesign.JPG)
+
+### Building Project
+---
+1.	Clone the project
+	
+	```
+	git clone https://github.com/vamshins/ticket-booking-service.git
+	```
+	
+2.	Run the following commands
+
+	```
+	cd ticket-booking-service
+	```
+	```
+	mvn package
+	```
+	```
+	cd target
+	```
+	```
+	java -jar ticket-booking-service-0.0.1-SNAPSHOT.jar
+	```
+	
+	After running the above commands successfully, you should see the following messages.
+	
+	```
+	.... Tomcat started on port(s): 8080 (http)
+	.... Started TicketBookingServiceApplication in 8.837 seconds (JVM running for 9.214)
+	```
+	
 ### RESTful Web Services
 ---
 
