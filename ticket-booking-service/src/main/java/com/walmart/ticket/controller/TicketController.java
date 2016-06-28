@@ -32,7 +32,7 @@ public class TicketController {
      *
      * @return Number of seats available for all levels.
      */
-    @RequestMapping(value = "/v1/venueLevel/seatsAvailable", method = RequestMethod.GET)
+    @RequestMapping(value = "/v1/venue/seats", method = RequestMethod.GET)
     public int allAvailableSeats(){
         LOGGER.debug("Finding number of seats available for all levels");
         final int numSeatsAvailable = ticketService.numSeatsAvailable(StringUtils.EMPTY);
@@ -46,7 +46,7 @@ public class TicketController {
      * @return Number of seats available for the levelId.
      */
 
-    @RequestMapping(value = "/v1/venueLevel/seatsAvailable/{levelId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/v1/venue/seats/{levelId}", method = RequestMethod.GET)
     public int availableSeats(@PathVariable final String levelId){
         LOGGER.debug("Finding number of seats available for level {}", levelId);
         final int numSeatsAvailable = ticketService.numSeatsAvailable(levelId);
@@ -60,7 +60,7 @@ public class TicketController {
      * @return SeatHoldReply Response contains id, customerEmail, list of Holds at various levels
      */
 
-    @RequestMapping(value = "/v1/holdSeats", method = RequestMethod.POST)
+    @RequestMapping(value = "/v1/venue/seats/hold", method = RequestMethod.POST)
     public ResponseEntity<SeatHoldReply> findAndHoldSeats(@RequestBody final SeatHoldRequest seatHoldRequest){
         LOGGER.debug("Received seat hold request with input {}", seatHoldRequest);
         final SeatHold seatHold = ticketService.findAndHoldSeats(
@@ -80,21 +80,12 @@ public class TicketController {
         return response;
     }
 
-    private List<SeatHoldVenueDetail> getListOfSeatHoldVenueDetails(SeatHold seatHold) {
-        return TicketUtils.convertList(seatHold.getSeatBookings(), seatBooking -> {
-            SeatHoldVenueDetail seatHoldVenueDetail = new SeatHoldVenueDetail();
-            seatHoldVenueDetail.setLevel(seatBooking.getVenueId());
-            seatHoldVenueDetail.setNumberOfSeatHolds(seatBooking.getNumberOfSeats());
-            return seatHoldVenueDetail;
-        });
-    }
-
     /**
      *
      * @param seatBookingRequest Request contains Hold id, customerEmail
      * @return SeatBookingReply
      */
-    @RequestMapping(value = "/v1/reserveSeats", method = RequestMethod.POST)
+    @RequestMapping(value = "/v1/venue/seats/reserve", method = RequestMethod.POST)
     public ResponseEntity<SeatBookingReply> reserveSeats(@RequestBody final SeatBookingRequest seatBookingRequest){
         LOGGER.debug("Received request for reservation {}", seatBookingRequest);
         ResponseEntity<SeatBookingReply> response;
@@ -107,5 +98,14 @@ public class TicketController {
         }
         LOGGER.debug("Finished request for reservation and the details are {}", seatBookingRequest, response);
         return response;
+    }
+
+    private List<SeatHoldVenueDetail> getListOfSeatHoldVenueDetails(SeatHold seatHold) {
+        return TicketUtils.convertList(seatHold.getSeatBookings(), seatBooking -> {
+            SeatHoldVenueDetail seatHoldVenueDetail = new SeatHoldVenueDetail();
+            seatHoldVenueDetail.setLevel(seatBooking.getVenueId());
+            seatHoldVenueDetail.setNumberOfSeatHolds(seatBooking.getNumberOfSeats());
+            return seatHoldVenueDetail;
+        });
     }
 }
