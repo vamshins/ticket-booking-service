@@ -2,7 +2,7 @@
 ---
 Implementation of a simple ticket service that facilitates the discovery, temporary hold, and final reservation of seats within a high-demand performance venue.
 
-This application is developed using Spring Boot, Spring JDBC, Spring RESTful web services, HSQLDB.
+This application is developed using Spring Boot, Spring JDBC, Spring RESTful web services, Maven, HSQLDB.
 
 ### Assumptions
 ---
@@ -20,7 +20,8 @@ This application is developed using Spring Boot, Spring JDBC, Spring RESTful web
 	git clone https://github.com/vamshins/ticket-booking-service.git
 	```
 	
-2.	Run the following commands
+2.	Kindly make sure JAVA_HOME environment variable is configured and maven bin directory is added to PATH environment variable.
+	Run the following commands
 
 	```
 	cd ticket-booking-service
