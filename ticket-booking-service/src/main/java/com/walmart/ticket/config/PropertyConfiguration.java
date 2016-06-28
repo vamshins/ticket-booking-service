@@ -7,7 +7,6 @@ import org.springframework.context.annotation.PropertySource;
  * Created by Vamshi on 6/27/2016.
  */
 @Configuration
-@PropertySource({})
-// TODO Configure any properties files here.
+@PropertySource({"classpath:database/sql-query.properties", "classpath:common.properties"})
 public class PropertyConfiguration {
 }
