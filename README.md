@@ -8,7 +8,8 @@ This application is developed using Spring Boot, Spring JDBC, Spring RESTful web
 ---
 1. Users are provided seats based on the availability.
 2. No seat numbers.
-3. Hold time for the seats is 60 seconds. If the user doesn't reserve the seats before 60 seconds, then the holds are removed and user has to send a request again to hold the seats. 4. No notification for the expiration of seat holds.
+3. Hold time for the seats is 60 seconds. If the user doesn't reserve the seats before 60 seconds, then the holds are removed and user has to send a request again to hold the seats.
+4. No notification for the expiration of seat holds.
 5. User can hold and reserve the seats at multiple levels by providing the minLevel and maxLevel.
 
 ### DB Schema
@@ -111,7 +112,7 @@ The application is designed using HSQLDB. For illustration purposes, I have gene
 	
 	![holdSeats](https://github.com/vamshins/ticket-booking-service/blob/master/img/holdSeats.JPG)
 	
-	This request will expire after 60 seconds. User has to reserve the seats using the web service in the following request.
+	This request will expire after 60 seconds. Before that, user has to reserve the seats using the web service in the following request.
 	
 3.	Reserve and commit a specific group of held seats for a customer
 
@@ -139,4 +140,13 @@ The application is designed using HSQLDB. For illustration purposes, I have gene
 	![reserveSeats](https://github.com/vamshins/ticket-booking-service/blob/master/img/reserveSeats.JPG)
 	
 	
+### Testing Results
+---
+Tests are done using JUnit. Tests are run using the command
+
+```
+mvn test
+```
+
+![testResults](https://github.com/vamshins/ticket-booking-service/blob/master/img/testResults.JPG)
 
