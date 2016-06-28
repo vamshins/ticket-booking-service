@@ -7,18 +7,22 @@ This application is developed using Spring Boot, Spring JDBC, Spring RESTful web
 1.	Find the number of seats available within the venue, optionally by seating level
 	Note: available seats are seats that are neither held nor reserved.
 	* Total seats available in all venues:
+	
 		```
 		GET - http://localhost:8080/ticket-booking-service/v1/venue/seats
 		```
 	* Number of seats available at a particular level:
+		
 		```
 		GET - http://localhost:8080/ticket-booking-service/v1/venue/seats/{levelId}
 		```
 2.	Find and hold the best available seats on behalf of a customer, potentially limited to specific levels
 	Note: each ticket hold should expire within a set number of seconds.
+	
 	```
 	POST - http://localhost:8080/ticket-booking-service/v1/venue/seats/hold
 	```
+	
 	RequestBody:
 	```
 	{
@@ -29,6 +33,7 @@ This application is developed using Spring Boot, Spring JDBC, Spring RESTful web
 	}
 	```
 3.	Reserve and commit a specific group of held seats for a customer
+
 	```
 	POST - http://localhost:8080/ticket-booking-service/v1/venue/seats/reserve
 	```
